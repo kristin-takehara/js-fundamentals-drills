@@ -453,7 +453,7 @@ var objectToArray = function objectToArray(obj){
 var arrayToObject = function arrayToObject(arr){
   var newObj = {};
   for(var i = 0; i < arr.length; i++){
-    newObj(arr[i]) === false;
+    newObj[arr[i]] = false;
   }
   return newObj;
 };
@@ -470,7 +470,7 @@ var arrayToObject = function arrayToObject(arr){
 var arraysToObject = function arraysToObject(arr1, arr2){
   var newObj = {};
   for (var i = 0; i < arr1.length; i++){
-    newObj(arr1[i]) === arr2[i];
+    newObj[arr1[i]] = arr2[i];
   }
   return newObj;
 };
@@ -505,9 +505,15 @@ var objectsToTuples = function objectsToTuples(obj1, obj2){
  * @param {Array}
  * @return {Object}
  */
-var mapArrayValues;
+var mapArrayValues = function mapArrayValues(arr){
+  var newObj = {};
+  for (var i = 0; i < arr.length; i++){
+    newObj[arr[i]] = true;
+  }
+  return newobj;
+};
 
-/* #mapStringCounts
+/* #mapStringCounts <=== say what?!? why is this here?
  *
  * takes in an array of strings and returns an object with key names set to the elements in the array.
  * If the character count of the key name is greater than or equal to 5 set the value to true,
@@ -526,7 +532,14 @@ var mapStringCounts;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObjectNums;
+var arrayToObjectNums = function arrayToObjectNums(arr){
+  var newObj = {};
+  for ( var i = 0; i < arr.length; i++){
+    newObj[arr[i]] = true;
+    newObj.push(arr[i]);
+  }
+  return newObj;
+};
 
 /* #stringToKeys
  *
