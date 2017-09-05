@@ -442,7 +442,7 @@ var objectToArray = function objectToArray(obj){
   return tupleArr;
 };
 
-/* #arrayToObject
+/* #arrayToObject <<<REVIEW
  *
  * takes in an array and returns an object with keys set to the elements in the array and
  * all values set to false.
@@ -450,7 +450,13 @@ var objectToArray = function objectToArray(obj){
  * @param {Array}
  * @return {Object}
  */
-var arrayToObject;
+var arrayToObject = function arrayToObject(arr){
+  var newObj = {};
+  for(var i = 0; i < arr.length; i++){
+    newObj(arr[i]) === false;
+  }
+  return newObj;
+};
 
 /* #arraysToObject
  *
@@ -461,7 +467,13 @@ var arrayToObject;
  * @param {Array}
  * @return {Object}
  */
-var arraysToObject;
+var arraysToObject = function arraysToObject(arr1, arr2){
+  var newObj = {};
+  for (var i = 0; i < arr1.length; i++){
+    newObj(arr1[i]) === arr2[i];
+  }
+  return newObj;
+};
 
 /* #objectsToTuples
  *
@@ -471,7 +483,20 @@ var arraysToObject;
  * @param {Object}
  * @return {Array}
  */
-var objectsToTuples;
+var objectsToTuples = function objectsToTuples(obj1, obj2){
+  var newArr = [];
+  for (var i = 0; i < obj1.length; i++){
+    var obj1Arr = [];
+     obj1Arr.push(i, obj1[i]);
+    newArr.push(obj1Arr);
+    }
+  for (var j = 0; j < obj2.length; j++){
+    var obj2Arr = [];
+    obj2Arr.push(j, obj2[i]);
+    newArr.push(obj2Arr);
+  }
+  return newArr;
+};
 
 /* #mapArrayValues
  *
@@ -573,9 +598,9 @@ module.exports = {
   getValues: getValues,
   getObjKeys: getObjKeys, //Initially titled ' getKeys' which was already used above. Renamed to 'getObjKeys' to circumvent crashing.
   objectToArray: objectToArray,
-  arrayToObject: null,
-  arraysToObject: null,
-  objectsToTuples: null,
+  arrayToObject: arrToObject,
+  arraysToObject: arraysToObject,
+  objectsToTuples: objectToTuples,
   mapArrayValues: null,
   mapStringCounts: null,
   arrayToObjectNums: null,
